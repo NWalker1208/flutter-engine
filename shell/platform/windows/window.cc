@@ -390,7 +390,8 @@ Window::HandleMessage(UINT const message,
     }
     case WM_MOUSEMOVE:
       device_kind = GetFlutterPointerDeviceKind();
-      if (device_kind == kFlutterPointerDeviceKindMouse) {
+      if (device_kind == kFlutterPointerDeviceKindMouse ||
+          device_kind == kFlutterPointerDeviceKindStylus) {
         TrackMouseLeaveEvent(window_handle_);
 
         xPos = GET_X_LPARAM(lparam);
@@ -411,7 +412,8 @@ Window::HandleMessage(UINT const message,
       break;
     case WM_MOUSELEAVE:
       device_kind = GetFlutterPointerDeviceKind();
-      if (device_kind == kFlutterPointerDeviceKindMouse) {
+      if (device_kind == kFlutterPointerDeviceKindMouse ||
+          device_kind == kFlutterPointerDeviceKindStylus) {
         OnPointerLeave(mouse_x_, mouse_y_, device_kind,
                        kDefaultPointerDeviceId);
       }
@@ -440,7 +442,8 @@ Window::HandleMessage(UINT const message,
     case WM_MBUTTONDOWN:
     case WM_XBUTTONDOWN:
       device_kind = GetFlutterPointerDeviceKind();
-      if (device_kind != kFlutterPointerDeviceKindMouse) {
+      if (device_kind != kFlutterPointerDeviceKindMouse &&
+          device_kind != kFlutterPointerDeviceKindStylus) {
         break;
       }
 
@@ -466,7 +469,8 @@ Window::HandleMessage(UINT const message,
     case WM_MBUTTONUP:
     case WM_XBUTTONUP:
       device_kind = GetFlutterPointerDeviceKind();
-      if (device_kind != kFlutterPointerDeviceKindMouse) {
+      if (device_kind != kFlutterPointerDeviceKindMouse &&
+          device_kind != kFlutterPointerDeviceKindStylus) {
         break;
       }
 
