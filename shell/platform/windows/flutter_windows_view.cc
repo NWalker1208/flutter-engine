@@ -509,6 +509,9 @@ void FlutterWindowsView::SendPointerEventWithData(
   event.device_kind = state->device_kind;
   event.device = state->pointer_id;
   event.buttons = state->buttons;
+  event.pressure = state->pressure;
+  event.pressure_min = state->pressure_min;
+  event.pressure_max = state->pressure_max;
 
   // Set metadata that's always the same regardless of the event.
   event.struct_size = sizeof(event);

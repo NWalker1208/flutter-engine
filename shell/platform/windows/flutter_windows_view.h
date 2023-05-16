@@ -246,6 +246,18 @@ class FlutterWindowsView : public WindowBindingHandlerDelegate,
 
     // The y position where the last pan/zoom started.
     double pan_zoom_start_y = 0;
+
+    // The currently applied pressure. Set to 1.0 for devices that do not detect
+    // pressure.
+    double pressure = 1.0;
+
+    // The minimum pressure value for this pointer. Set to 1.0 for devices that
+    // do not detect pressure.
+    double pressure_min = 1.0;
+
+    // The maximum pressure value for this pointer. Always at least 1.0. Set
+    // to 1.0 for devices that do not detect pressure.
+    double pressure_max = 1.0;
   };
 
   // States a resize event can be in.
