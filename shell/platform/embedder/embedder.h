@@ -934,6 +934,16 @@ typedef struct {
   double scale;
   /// The rotation of the pan/zoom in radians, where 0.0 is the initial angle.
   double rotation;
+  /// The pressure being applied, where 0.0 is no discernible pressure, 1.0 is
+  /// normal pressure, and greater than 1.0 is stronger. Set to 1.0 for devices
+  /// that do not detect pressure.
+  double pressure;
+  /// The minimum pressure value for this pointer. Set to 1.0 for devices that
+  /// do not detect pressure.
+  double pressure_min;
+  /// The maximum pressure value for this pointer. Always at least 1.0. Set
+  /// to 1.0 for devices that do not detect pressure.
+  double pressure_max;
 } FlutterPointerEvent;
 
 typedef enum {
