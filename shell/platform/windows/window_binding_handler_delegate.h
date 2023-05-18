@@ -27,6 +27,11 @@ class WindowBindingHandlerDelegate {
   // Typically called by currently configured WindowBindingHandler.
   virtual void OnWindowRepaint() = 0;
 
+  // TO-DO: These pointer functions need to be refactored to be more versatile.
+  //        Either another set of functions needs to be made, or some kind of pointer
+  //        struct needs to be passed into the functions to make all relevant data
+  //        available.
+
   // Notifies delegate that backing window mouse has moved.
   // Typically called by currently configured WindowBindingHandler.
   virtual void OnPointerMove(double x,
